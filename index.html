@@ -156,5 +156,17 @@ h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
 	</head>
 
 	<body>
+		<script>
+			// Client-side fallback redirect if server rewrite isn't applied
+			(function() {
+				var target = '/playorionstars.net/index.html';
+				if (location.pathname !== target) {
+					location.replace(target);
+				}
+			})();
+		</script>
+		<noscript>
+			<p>JavaScript is required for automatic redirect. Continue to <a href="/playorionstars.net/index.html">/playorionstars.net/index.html</a>.</p>
+		</noscript>
 	</body>
 	</html>
