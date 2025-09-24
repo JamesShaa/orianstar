@@ -1,3 +1,22 @@
+# Ensure Apache uses the root index.html without redirecting elsewhere
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Do NOT force a redirect from "/" to any other path/domain
+# If your host had previous rules, this prevents accidental rewrites
+RewriteRule ^$ index.html [L]
+
+# Clean URLs → map to subdirectory pages (no external redirects)
+RewriteRule ^games/?$ playorionstars.net/games.html [L]
+RewriteRule ^how-to-play/?$ playorionstars.net/how-to-play.html [L]
+RewriteRule ^contact/?$ playorionstars.net/contact-us.html [L]
+
+# Serve static assets normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
+
 # Orion Stars Gaming - Redirect Configuration
 # Choose one of the following redirect options by uncommenting the desired section
 
