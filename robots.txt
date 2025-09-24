@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Point search engines to your XML sitemap
+Sitemap: https://playorionstars.net/sitemap.xml
+
+
