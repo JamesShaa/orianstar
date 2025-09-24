@@ -1,3 +1,14 @@
+RewriteEngine On
+
+# Avoid redirect loop if already on the target path
+RewriteCond %{REQUEST_URI} !^/playorionstars.net/index\.html$
+
+# Redirect only the site root to the main gaming page
+RewriteRule ^$ /playorionstars.net/index.html [R=301,L]
+
+# Also redirect /index.html explicitly to the main gaming page
+RewriteRule ^index\.html$ /playorionstars.net/index.html [R=301,L]
+
 # Ensure Apache uses the root index.html without redirecting elsewhere
 DirectoryIndex index.html
 
