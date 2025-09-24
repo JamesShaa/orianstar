@@ -1,0 +1,59 @@
+# Orion Stars Gaming - Redirect Configuration Options
+# Choose the option that best fits your needs
+
+## OPTION 1: No Redirect (Currently Active)
+- Users visit orionstarsgame.vip and see the enhanced landing page
+- They can choose to navigate to the main gaming platform
+- Best for: SEO, user choice, better user experience
+
+## OPTION 2: 301 Redirect to Subdirectory
+Add this to your .htaccess file (uncomment the lines):
+```
+RewriteEngine On
+RewriteRule ^$ playorionstars.net/index.html [R=301,L]
+```
+- Automatically redirects users to the main gaming platform
+- SEO-friendly 301 redirect
+- Best for: Directing users to main content
+
+## OPTION 3: External Domain Redirect
+Add this to your .htaccess file (uncomment and modify):
+```
+RewriteEngine On
+RewriteRule ^(.*)$ https://yourdomain.com/$1 [R=301,L]
+```
+- Redirects to a completely different domain
+- Best for: Domain migration or pointing to main site
+
+## OPTION 4: Smart Path-Based Redirects
+Add this to your .htaccess file (uncomment the lines):
+```
+RewriteEngine On
+RewriteRule ^games/?$ playorionstars.net/games.html [R=301,L]
+RewriteRule ^contact/?$ playorionstars.net/contact-us.html [R=301,L]
+RewriteRule ^how-to-play/?$ playorionstars.net/how-to-play.html [R=301,L]
+```
+- Redirects specific paths to appropriate pages
+- Keeps root accessible while routing other paths
+- Best for: Organized navigation structure
+
+## OPTION 5: Meta Refresh Redirect (Not Recommended)
+Add this back to index.html if needed:
+```
+<meta http-equiv="refresh" content="0; URL=playorionstars.net/index.html">
+```
+- Not SEO-friendly
+- Causes the redirect issue you experienced
+- Only use if other options aren't available
+
+## RECOMMENDATIONS:
+1. **For SEO**: Use Option 1 (no redirect) or Option 2 (301 redirect)
+2. **For User Experience**: Use Option 1 (enhanced landing page)
+3. **For Clean URLs**: Use Option 4 (path-based redirects)
+4. **For Domain Migration**: Use Option 3 (external redirect)
+
+## How to Activate:
+1. Edit the .htaccess file
+2. Uncomment the desired option
+3. Comment out or remove other options
+4. Save and test
